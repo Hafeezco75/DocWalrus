@@ -3,8 +3,9 @@ import { Ed25519Keypair } from '@mysten/sui/keypairs/ed25519';
 import { getFullnodeUrl, SuiClient } from "@mysten/sui/client";
 import { Command } from "commander";
 
+
 const post = new Command();
-const wallet = Ed25519Keypair.fromSecretKey(process.env.SUI_SECRET_KEY);
+const wallet = Ed25519Keypair.fromSecretKey(process.env.SUI_SECRET_KEY!);
 
 const suiClient = new SuiClient({
     url: getFullnodeUrl('testnet')
@@ -59,7 +60,7 @@ post
     });
 
 post
-    .command('view post')
+    .command('view-post')
     .description('Viewing a Blog Post')
     .option('-i, --cid<cid>', 'Content CID of the Post')
     .action(async (options) => {

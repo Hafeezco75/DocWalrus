@@ -1,6 +1,4 @@
 
-
-
 async function compileMdx() {
   const response = await fetch('/compile-mdx', {
     method: 'POST',
